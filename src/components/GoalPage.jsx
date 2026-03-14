@@ -292,7 +292,7 @@ export default function GoalPage({ user }) {
       const dates = stepDatesByIndex[stepKey] || [];
       const allDone = dates.length > 0 && dates.every((d) => next[completionKey(d, optionId, stepId)]);
       if (completed && allDone) {
-        const completedDate = dates[dates.length - 1] || dateStr;
+        const completedDate = formatDate(new Date());
         setTaskStatus((prevStatus) => ({ ...prevStatus, [stepKey]: { status: 'done', completedDate } }));
       } else {
         clearTaskStatus(stepKey);
